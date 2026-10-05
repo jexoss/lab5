@@ -17,3 +17,5 @@ Imports:
     httr2,
     jsonlite,
     shiny
+URL: https://github.com/jexoss/lab5
+BugReports: https://github.com/jexoss/lab5/issues
