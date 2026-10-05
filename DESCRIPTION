@@ -1,11 +1,19 @@
 Package: lab5
-Title: What the Package Does (One Line, Title Case)
+Title: Fetch and Explore Qeustions from the Open Trivia Database
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Jonas", "Hautamäki Bengtsson", , "jonha849@student.liu.se", 
+    role = c("aut", "cre"))
+Description: Provides functions to query the Open Trivia Database API,
+  handling session tokens, decoding and the API's rate limit, and returns the 
+  questions as a data frame. Includes a Shiny app for interactively exploring 
+  the questions.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 8.1.0
+Imports: 
+    ggplot2,
+    httr2,
+    jsonlite,
+    shiny
