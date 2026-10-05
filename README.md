@@ -2,6 +2,7 @@
 # lab5
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/jexoss/lab5/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jexoss/lab5/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 lab5 provides functions to query the Open Trivia Database API, handling
