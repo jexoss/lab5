@@ -1,0 +1,52 @@
+---
+title: "Introduction to lab5"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to lab5}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(lab5)
+```
+
+## Fetching questions
+
+`get_questions()` downloads trivia questions from the [Open Trivia Database](https://opentdb.com). It handels the session token, decodes the base64-encoded text the API returns, and automatically splits requests for more than 50 questions into several calls to respect the API's rate limit.
+
+```{r}
+Sys.sleep(6)
+qs <- get_questions(amount = 10, difficulty = "easy")
+head(qs)
+```
+
+Leaving `difficulty`unset returns questions of any difficulty:
+
+```{r}
+Sys.sleep(6)
+qs_mixed <- get_questions(amount = 20)
+table(qs_mixed$difficulty)
+```
+
+Each question also has a `category`, a `type` (`"multiple"` or `"boolean"`), a `correct_answer`, and a list-column `incorrect_answers` with the remaining options:
+
+```{r}
+qs_mixed$category[1]
+qs_mixed$incorrect_answers[[1]]
+```
+
+## Visualizing the results
+
+`plot_questions()` shows how many questions were returned per category, split by difficulty:
+
+```{r, fig.width = 10, fig.height = 7, out.width = "100%"}
+plot_questions(qs_mixed)
+```
